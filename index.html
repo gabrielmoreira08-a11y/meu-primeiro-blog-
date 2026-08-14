@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Física - Curiosidades</title>
+
+    <!-- ESTILOS (CSS) -->
+    <!-- Aqui definimos a aparência, as cores e o layout do blog -->
+    <style>
+        /* Configurações gerais da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Cor de fundo suave para o blog */
+            color: #333333;           /* Cor do texto principal */
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+           CABEÇALHO / ABERTURA DO BLOG
+           Usamos o contraste forte entre Roxo Escuro (#2c3e50) e Amarelo Dourado (#f1c40f)
+        */
+        header {
+            background-color: #2c3e50; /* Cor de fundo do topo */
+            color: #ffffff;           /* Cor do texto no topo */
+            padding: 40px 20px;
+            text-align: center;
+           
+            /* Borda/Margem de contraste destacada na parte inferior do topo */
+            border-bottom: 8px solid #f1c40f;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #f1c40f; /* Texto de apoio usando a cor de contraste */
+            font-weight: bold;
+        }
+
+        /* ÁREA DOS POSTS / CONTEÚDO */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Cada artigo de curiosidade */
+        article {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        article h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        /* ÁREA DOS BOTÕES DE CURTIR */
+        .interacao {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eeeeee;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Estilo comum dos dois botões */
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05); /* Efeito suave ao passar o mouse */
+        }
+
+        /* Botão Curtir (Verde) */
+        .btn-curtir {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        /* Botão Não Curtir (Vermelho) */
+        .btn-nao-curtir {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        /* RODAPÉ DO BLOG */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ABERTURA / CABEÇALHO DO BLOG -->
+    <!-- ALUNO: Altere o título e o sub-título da sua página aqui abaixo -->
+    <header>
+        <h1>Física em Ação ⚡</h1>
+        <p>Abertura com contraste: Descobrindo os mistérios do Universo!</p>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DO BLOG -->
+    <main>
+
+        <!-- PRIMEIRO POST DE EXEMPLO -->
+        <!-- ALUNO: Copie o bloco <article> inteiro para criar novos posts! -->
+        <article>
+            <h2>1. O tempo passa mais devagar perto da gravidade?</h2>
+            <p>
+                Segundo a Teoria da Relatividade Geral de Albert Einstein, quanto mais forte for o campo gravitacional,
+                mais devagar o tempo passa! Isso significa que um relógio no topo do Monte Everest anda ligeiramente
+                mais rápido do que um relógio ao nível do mar.
+            </p>
+
+            <!-- ÁREA DOS BOTÕES DE CURTIR -->
+            <div class="interacao">
+                <button class="btn-curtir" onclick="curtir(this)">
+                    👍 Curtir (<span class="contador-curtir">0</span>)
+                </button>
+                <button class="btn-nao-curtir" onclick="naoCurtir(this)">
+                    👎 Não Curtir (<span class="contador-nao-curtir">0</span>)
+                </button>
+            </div>
+        </article>
+
+        <!-- SEGUNDO POST DE EXEMPLO -->
+        <article>
+            <h2>2. A luz é uma onda ou uma partícula?</h2>
+            <p>
+                A resposta surpreendente é: **as duas coisas!** Esse fenômeno é conhecido como *dualidade onda-partícula*.
+                Em alguns experimentos a luz se comporta como onda (fazendo interferência), e em outros como pequenos pacotes de energia chamados fótons.
+            </p>
+
+            <!-- ÁREA DOS BOTÕES DE CURTIR -->
+            <div class="interacao">
+                <button class="btn-curtir" onclick="curtir(this)">
+                    👍 Curtir (<span class="contador-curtir">0</span>)
+                </button>
+                <button class="btn-nao-curtir" onclick="naoCurtir(this)">
+                    👎 Não Curtir (<span class="contador-nao-curtir">0</span>)
+                </button>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <!-- ALUNO: Coloque o seu nome e ano de criação aqui -->
+    <footer>
+        <p>Blog criado para fins educacionais - Aula de Programação HTML</p>
+    </footer>
+
+    <!-- LÓGICA DE INTERAÇÃO (JAVASCRIPT) -->
+    <!-- Este pequeno código faz os contadores de curtir e não curtir aumentarem ao clicar -->
+    <script>
+        function curtir(botao) {
+            // Busca o número dentro do span do botão clicado
+            let contador = botao.querySelector('.contador-curtir');
+            // Soma 1 ao valor atual
+            contador.textContent = parseInt(contador.textContent) + 1;
+        }
+
+        function naoCurtir(botao) {
+            // Busca o número dentro do span do botão clicado
+            let contador = botao.querySelector('.contador-nao-curtir');
+            // Soma 1 ao valor atual
+            contador.textContent = parseInt(contador.textContent) + 1;
+        }
+    </script>
+
+</body>
+</html>
